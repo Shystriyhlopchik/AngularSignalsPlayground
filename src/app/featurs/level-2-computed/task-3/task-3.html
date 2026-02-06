@@ -1,1 +1,36 @@
-<p>task-3 works!</p>
+<section class="task-result">
+  <h2 class="task-result__title">
+    Результат выполнения Задачи 3
+  </h2>
+
+  <!-- Описание задачи -->
+  <p class="task-result__description">
+    computed-фильтрация списка. Задача: items = signal&lt;Item[]&gt;(...), query = signal('').
+    filtered = computed(() =&gt; ...) фильтрует список по query. Сделай список из 500–2000 элементов,
+    чтобы почувствовать "ленивость/мемоизацию". Готово, когда: filtered() пересчитывается только при
+    изменении items или query.
+  </p>
+
+  <label>
+    Query:
+    <input [value]="query()" (input)="setQuery(($any($event.target)).value)" />
+  </label>
+
+
+  <p><b>items:</b> {{ items().length }}</p>
+  <p><b>filtered:</b> {{ filtered().length }}</p>
+  <p><b>recomputeCount:</b> {{ recomputeCount() }}</p>
+
+  <ul>
+    @for (it of filtered().slice(0, 30); track trackById($index, it)) {
+      <li>#{{ it.id }} — {{ it.title }}</li>
+    }
+  </ul>
+
+
+  <!-- Управление -->
+  <div class="task-result__actions">
+    <button (click)="replaceItems()">Изменить массив</button>
+    <button (click)="reading()">Изменить массив</button>
+  </div>
+</section>
