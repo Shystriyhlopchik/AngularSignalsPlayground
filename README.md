@@ -1,59 +1,108 @@
-# AngularSignalsPlayground
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.2.
+Каждый `level-*` — независимый набор компонентов/сервисов с одной темой.
 
-## Development server
+---
 
-To start a local development server, run:
+## 📚 Уровни и задачи
 
-```bash
-ng serve
-```
+### Level 1 — Basics (signal / set / update / asReadonly)
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+**Цель:** понять writable vs readonly сигналы и их ограничения.
 
-## Code scaffolding
+- CounterState service с приватным writable сигналом
+- Readonly API наружу
+- Демонстрация shallow-immutability (deep mutation)
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+---
 
-```bash
-ng generate component component-name
-```
+### Level 2 — Computed Signals
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+**Цель:** ленивые вычисления и динамические зависимости.
 
-```bash
-ng generate --help
-```
+- Фильтрация списка через `computed`
+- Memoization
+- Пример computed с условной зависимостью
 
-## Building
+---
 
-To build the project run:
+### Level 3 — Reactive Context
 
-```bash
-ng build
-```
+**Цель:** контроль зависимостей и предотвращение “случайной реактивности”.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+- Effect с лишними зависимостями
+- Исправление через `untracked`
+- Использование `assertNotInReactiveContext`
 
-## Running unit tests
+---
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+### Level 4 — linkedSignal
 
-```bash
-ng test
-```
+**Цель:** производные сигналы с возможностью ручного управления.
 
-## Running end-to-end tests
+- Автовыбор значения при смене источника
+- Сохранение выбранного элемента, если он всё ещё валиден
+- Работа с `previous` значением
 
-For end-to-end (e2e) testing, run:
+---
 
-```bash
-ng e2e
-```
+### Level 5 — Equality и Type Guards
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+**Цель:** оптимизация и безопасная типизация.
 
-## Additional Resources
+- Кастомная функция `equal`
+- Предотвращение лишних обновлений
+- Использование `isSignal` и `isWritableSignal`
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
+
+### Level 6 — Effects & afterRenderEffect
+
+**Цель:** корректная работа с побочными эффектами.
+
+- Синхронизация сигнала с `localStorage`
+- Cleanup в effect
+- Интеграция с не-Angular API через `afterRenderEffect`
+- Разделение фаз (read / write)
+
+---
+
+### Level 7 — Resources
+
+**Цель:** асинхронная реактивность без RxJS.
+
+- `resource` с параметрами
+- Автоматический рефетч при изменении сигнала
+- Обработка состояний loading / error / value
+
+---
+
+## 🧪 Формат задач
+
+Каждая задача:
+- изолирована
+- решается через signals (без RxJS)
+- сопровождается комментариями **почему сделано именно так**
+- демонстрирует корректный паттерн, а не “как проще”
+
+---
+
+## 🎯 Цели проекта
+
+- Глубоко понять модель Signals в Angular
+- Подготовиться к собеседованиям Middle+/Senior
+- Иметь живой reference-проект
+- Понимать, **где signals лучше RxJS, а где — нет**
+
+---
+
+## 🔗 Полезные ссылки
+
+- Angular Signals Guide — https://angular.dev/guide/signals
+- linkedSignal — https://angular.dev/guide/signals/linked-signal
+- Resources — https://angular.dev/guide/signals/resource
+
+---
+
+## 🧑‍💻 Автор
+
+Проект создан в образовательных целях для профессионального роста frontend-разработчика.

@@ -1,0 +1,29 @@
+<section class="task-result">
+  <h2 class="task-result__title">
+    Результат выполнения задачи
+  </h2>
+
+  <p class="task-result__description">
+    Демонстрация работы Angular Signals:
+    CounterState с readonly сигналом
+  </p>
+
+  <!-- Основное состояние -->
+  <div class="task-result__block">
+    <span class="label">Текущее значение:</span>
+    <strong class="value">{{state.count()}}</strong>
+  </div>
+
+
+  <div class="task-result__block">
+    <span class="label">Вычисляемое значение:</span>
+    <strong class="value">{{ doubleCounter() }}</strong>
+  </div>
+
+
+  <div class="task-result__actions">
+    <button (click)="increment()">+</button>
+    <button (click)="decrement()">−</button>
+    <button (click)="reset()">Сброс</button>
+  </div>
+</section>

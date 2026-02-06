@@ -1,0 +1,254 @@
+<section class="page">
+  <header class="hero">
+    <div class="hero__text">
+      <h1 class="hero__title">Angular Signals • Practice Pack</h1>
+      <p class="hero__subtitle">
+        Набор задач по Signals: от базы до resources. Выбирай уровень и переходи к задаче.
+      </p>
+    </div>
+
+    <div class="hero__meta">
+      <div class="meta-card">
+        <div class="meta-card__label">Всего задач</div>
+        <div class="meta-card__value">14</div>
+      </div>
+
+      <div class="meta-card">
+        <div class="meta-card__label">Уровней</div>
+        <div class="meta-card__value">7</div>
+      </div>
+    </div>
+  </header>
+
+  <main class="grid">
+    <!-- УРОВЕНЬ 1 -->
+    <section class="level">
+      <div class="level__head">
+        <h2 class="level__title">Уровень 1</h2>
+        <div class="level__badge">база signals</div>
+      </div>
+
+      <div class="cards">
+        <a class="task-card" [routerLink]="['/task-1']">
+          <div class="task-card__top">
+            <div class="task-card__num">1</div>
+            <div class="task-card__tag">signal • readonly API</div>
+          </div>
+          <div class="task-card__title">Счётчик с публичным readonly API</div>
+          <div class="task-card__desc">
+            CounterState сервис: приватный signal, наружу asReadonly(), методы через set/update().
+          </div>
+        </a>
+
+        <a class="task-card" [routerLink]="['/task-2']">
+          <div class="task-card__top">
+            <div class="task-card__num">2</div>
+            <div class="task-card__tag">object signal • deep-mutation</div>
+          </div>
+          <div class="task-card__title">Сигнал-объект без “глубокой защиты”</div>
+          <div class="task-card__desc">
+            Сравни push-мутирование массива и иммутабельное обновление (spread).
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- УРОВЕНЬ 2 -->
+    <section class="level">
+      <div class="level__head">
+        <h2 class="level__title">Уровень 2</h2>
+        <div class="level__badge">computed</div>
+      </div>
+
+      <div class="cards">
+        <a class="task-card" [routerLink]="['/task-3']">
+          <div class="task-card__top">
+            <div class="task-card__num">3</div>
+            <div class="task-card__tag">computed • memoization</div>
+          </div>
+          <div class="task-card__title">computed-фильтрация списка</div>
+          <div class="task-card__desc">
+            filtered пересчитывается только при изменении items/query. Проверь “ленивость” на 500–2000 элементов.
+          </div>
+        </a>
+
+        <a class="task-card" [routerLink]="['/tasks/4']">
+          <div class="task-card__top">
+            <div class="task-card__num">4</div>
+            <div class="task-card__tag">computed • dynamic deps</div>
+          </div>
+          <div class="task-card__title">Динамические зависимости computed</div>
+          <div class="task-card__desc">
+            show=false → изменение count не должно триггерить пересчёт message.
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- УРОВЕНЬ 3 -->
+    <section class="level">
+      <div class="level__head">
+        <h2 class="level__title">Уровень 3</h2>
+        <div class="level__badge">reactive context</div>
+      </div>
+
+      <div class="cards">
+        <a class="task-card" [routerLink]="['/tasks/5']">
+          <div class="task-card__top">
+            <div class="task-card__num">5</div>
+            <div class="task-card__tag">effect • untracked</div>
+          </div>
+          <div class="task-card__title">“Случайная зависимость” и untracked</div>
+          <div class="task-card__desc">
+            Эффект реагирует только на currentUser, но логирует counter — исправь через untracked(counter).
+          </div>
+        </a>
+
+        <a class="task-card" [routerLink]="['/tasks/6']">
+          <div class="task-card__top">
+            <div class="task-card__num">6</div>
+            <div class="task-card__tag">assertNotInReactiveContext</div>
+          </div>
+          <div class="task-card__title">Защита от запуска в reactive context</div>
+          <div class="task-card__desc">
+            subscribeToSocket() с assertNotInReactiveContext — поймай ошибку из effect и вынеси императивный код.
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- УРОВЕНЬ 4 -->
+    <section class="level">
+      <div class="level__head">
+        <h2 class="level__title">Уровень 4</h2>
+        <div class="level__badge">linkedSignal</div>
+      </div>
+
+      <div class="cards">
+        <a class="task-card" [routerLink]="['/tasks/7']">
+          <div class="task-card__top">
+            <div class="task-card__num">7</div>
+            <div class="task-card__tag">linkedSignal • validity</div>
+          </div>
+          <div class="task-card__title">Выбор из списка, который меняется</div>
+          <div class="task-card__desc">
+            selected = linkedSignal(() => options()[0]) и ручной выбор; при смене options выбранное становится валидным.
+          </div>
+        </a>
+
+        <a class="task-card" [routerLink]="['/tasks/8']">
+          <div class="task-card__top">
+            <div class="task-card__num">8</div>
+            <div class="task-card__tag">linkedSignal • previous</div>
+          </div>
+          <div class="task-card__title">linkedSignal с учётом previous</div>
+          <div class="task-card__desc">
+            Если прежний id есть в новом списке — сохрани, иначе выбери первый.
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- УРОВЕНЬ 5 -->
+    <section class="level">
+      <div class="level__head">
+        <h2 class="level__title">Уровень 5</h2>
+        <div class="level__badge">equality • guards</div>
+      </div>
+
+      <div class="cards">
+        <a class="task-card" [routerLink]="['/tasks/9']">
+          <div class="task-card__top">
+            <div class="task-card__num">9</div>
+            <div class="task-card__tag">equal • avoid updates</div>
+          </div>
+          <div class="task-card__title">Кастомная equal: “не триггерить лишнее”</div>
+          <div class="task-card__desc">
+            equal по id: новый объект с тем же id не должен дёргать downstream-зависимости.
+          </div>
+        </a>
+
+        <a class="task-card" [routerLink]="['/tasks/10']">
+          <div class="task-card__top">
+            <div class="task-card__num">10</div>
+            <div class="task-card__tag">isSignal • isWritableSignal</div>
+          </div>
+          <div class="task-card__title">Утилиты type-guard</div>
+          <div class="task-card__desc">
+            helper(unknown): если isSignal — читает, если isWritableSignal — update(). Типизация без ругани TS.
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- УРОВЕНЬ 6 -->
+    <section class="level">
+      <div class="level__head">
+        <h2 class="level__title">Уровень 6</h2>
+        <div class="level__badge">effects • afterRenderEffect</div>
+      </div>
+
+      <div class="cards">
+        <a class="task-card" [routerLink]="['/tasks/11']">
+          <div class="task-card__top">
+            <div class="task-card__num">11</div>
+            <div class="task-card__tag">effect • localStorage</div>
+          </div>
+          <div class="task-card__title">Синхронизация темы с localStorage</div>
+          <div class="task-card__desc">
+            effect сохраняет тему, при старте инициализация из localStorage — после перезагрузки сохраняется выбор.
+          </div>
+        </a>
+
+        <a class="task-card" [routerLink]="['/tasks/12']">
+          <div class="task-card__top">
+            <div class="task-card__num">12</div>
+            <div class="task-card__tag">afterRenderEffect • canvas</div>
+          </div>
+          <div class="task-card__title">Интеграция с “не-ангулар” API</div>
+          <div class="task-card__desc">
+            Canvas + chartData signal: инстанс в afterNextRender, обновления через afterRenderEffect (без detectChanges).
+          </div>
+        </a>
+
+        <a class="task-card" [routerLink]="['/tasks/13']">
+          <div class="task-card__top">
+            <div class="task-card__num">13</div>
+            <div class="task-card__tag">cleanup • timer</div>
+          </div>
+          <div class="task-card__title">Cleanup в effect (таймер)</div>
+          <div class="task-card__desc">
+            При смене userId стартует таймер; предыдущий отменяется через onCleanup — логируется только последний.
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- УРОВЕНЬ 7 -->
+    <section class="level">
+      <div class="level__head">
+        <h2 class="level__title">Уровень 7</h2>
+        <div class="level__badge">resources</div>
+      </div>
+
+      <div class="cards">
+        <a class="task-card" [routerLink]="['/tasks/14']">
+          <div class="task-card__top">
+            <div class="task-card__num">14</div>
+            <div class="task-card__tag">resource • async reactivity</div>
+          </div>
+          <div class="task-card__title">Resource для загрузки данных по параметру</div>
+          <div class="task-card__desc">
+            userId → resource params → loader fetch. UI: loading/error/value. Смена userId перезапрашивает данные.
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__note">
+      Подсказка: добавь “/tasks/:id” страницы — и главная станет навигацией по всему проекту.
+    </div>
+  </footer>
+</section>

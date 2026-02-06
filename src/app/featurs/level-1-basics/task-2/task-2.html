@@ -1,0 +1,29 @@
+<section class="task-result">
+  <h2 class="task-result__title">
+    Результат выполнения Задачи 2
+  </h2>
+
+  <!-- Описание задачи -->
+  <p class="task-result__description">
+    Сигнал-объект без “глубокой защиты”
+    Задача: profile = signal(&#123; name: '...', tags: [] &#125;).
+    Добавь кнопку “добавить tag”
+    Специально сделай вариант с мутацией массива (push) и вариант с иммутабельным обновлением (через spread).
+    Сравни поведение в шаблоне.
+    Готово, когда:
+    ты видишь/понимаешь, почему readonly не спасает от deep-mutation.
+  </p>
+
+  <!-- Основное состояние -->
+  <div class="task-result__block">
+    <span class="label">Текущее значение:</span>
+    <strong class="value">{{computed()}}</strong>
+  </div>
+
+
+  <!-- Управление -->
+  <div class="task-result__actions">
+    <button (click)="addTag()">Добавить tag</button>
+    <button (click)="addTagImmutable()">Добавить tag(иммутабельный)</button>
+  </div>
+</section>
