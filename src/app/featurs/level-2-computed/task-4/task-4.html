@@ -1,0 +1,27 @@
+<section class="task-result">
+  <h2 class="task-result__title">
+    Результат выполнения Задачи 2. Динамические зависимости computed
+  </h2>
+
+  <!-- Описание задачи -->
+  <p class="task-result__description">
+    Задача: show = signal(false), count = signal(0).
+    message = computed(() => show() ? \count=$&#123;count()&#125;` : 'hidden')`
+
+    Готово, когда:
+    при show=false изменение count не приводит к пересчёту message.
+  </p>
+
+  <!-- Основное состояние -->
+  <div class="task-result__block">
+    <span class="label">Текущее значение:</span>
+    <strong class="value">{{message()}}</strong>
+  </div>
+
+
+  <!-- Управление -->
+  <div class="task-result__actions">
+    <button (click)="showCount()">{{show() ? 'Скрыть' : 'Показать'}}</button>
+    <button (click)="increaseCount()">Увеличить счет</button>
+  </div>
+</section>

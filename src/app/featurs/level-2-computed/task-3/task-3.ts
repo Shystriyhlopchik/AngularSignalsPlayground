@@ -58,6 +58,7 @@ export class Task3 {
 
   reading() {
     // ❗TODO: обратите внимание на recomputeCount. Счетчик не меняется.
+    console.log('обратите внимание на recomputeCount. Счетчик не меняется.');
     console.log(this.filtered());
   }
 }
